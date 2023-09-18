@@ -17,6 +17,7 @@ import { showAlert } from '..';
 import { CustomRepositorySettingsFormGroup } from './custom-repository-settings-form-group';
 import { GitHubRepositorySetupFormGroup } from './github-repository-settings-form-group';
 import { GitLabRepositorySetupFormGroup } from './gitlab-repository-settings-form-group';
+import { GitHubEnterpriseRepositorySettingsFormGroup } from './github-enterprise-repository-settings-form-group';
 
 const TabPill = styled.div({
   display: 'flex',
@@ -119,6 +120,14 @@ export const GitRepositorySettingsModal = (props: ModalProps & {
                 <PanelContainer className="pad pad-top-sm">
                   <CustomRepositorySettingsFormGroup
                     gitRepository={gitRepository}
+                    onSubmit={onSubmit}
+                  />
+                </PanelContainer>
+              </TabItem>
+              <TabItem key='github enterprise' title={<TabPill><i className="fa fa-github" /> GitHub Enterprise</TabPill>}>
+                <PanelContainer className="pad pad-top-sm">
+                  <GitHubEnterpriseRepositorySettingsFormGroup
+                    uri='https://www.codeconnected.bmw'
                     onSubmit={onSubmit}
                   />
                 </PanelContainer>
